@@ -1,0 +1,157 @@
+package: .
+import:
+- package: github.com/Azure/azure-sdk-for-go
+  subpackages:
+  - arm/storage
+  - storage
+- package: github.com/Azure/go-autorest
+  subpackages:
+  - autorest
+  - autorest/adal
+  - autorest/azure
+- package: github.com/apparentlymart/go-cidr
+  subpackages:
+  - cidr
+- package: github.com/armon/circbuf
+- package: github.com/aws/aws-sdk-go
+  subpackages:
+  - aws
+  - aws/awserr
+  - service/dynamodb
+  - service/s3
+- package: github.com/blang/semver
+- package: github.com/chzyer/readline
+- package: github.com/coreos/etcd
+  subpackages:
+  - client
+  - clientv3
+  - clientv3/concurrency
+  - pkg/transport
+- package: github.com/davecgh/go-spew
+  subpackages:
+  - spew
+- package: github.com/dylanmei/winrmtest
+- package: github.com/golang/glog
+- package: github.com/golang/mock
+  subpackages:
+  - gomock
+- package: github.com/gophercloud/gophercloud
+  subpackages:
+  - openstack
+  - openstack/objectstorage/v1/containers
+  - openstack/objectstorage/v1/objects
+- package: github.com/hashicorp/atlas-go
+  subpackages:
+  - archive
+  - v1
+- package: github.com/hashicorp/consul
+  subpackages:
+  - api
+- package: github.com/hashicorp/errwrap
+- package: github.com/hashicorp/go-checkpoint
+- package: github.com/hashicorp/go-cleanhttp
+- package: github.com/hashicorp/go-getter
+- package: github.com/hashicorp/go-multierror
+- package: github.com/hashicorp/go-retryablehttp
+- package: github.com/hashicorp/go-rootcerts
+- package: github.com/hashicorp/go-uuid
+- package: github.com/hashicorp/go-version
+- package: github.com/hashicorp/hcl
+  subpackages:
+  - hcl/ast
+  - hcl/fmtcmd
+  - hcl/printer
+- package: github.com/hashicorp/hcl2
+  subpackages:
+  - gohcl
+  - hcl
+  - hcldec
+  - hclparse
+- package: github.com/hashicorp/hil
+  subpackages:
+  - ast
+- package: github.com/hashicorp/vault
+  subpackages:
+  - helper/pgpkeys
+- package: github.com/joyent/gocommon
+  subpackages:
+  - client
+  - errors
+- package: github.com/joyent/gomanta
+  subpackages:
+  - manta
+- package: github.com/joyent/gosign
+  subpackages:
+  - auth
+- package: github.com/kardianos/osext
+- package: github.com/lusis/go-artifactory
+  subpackages:
+  - src/artifactory.v401
+- package: github.com/masterzen/winrm
+- package: github.com/mattn/go-colorable
+- package: github.com/mattn/go-shellwords
+- package: github.com/mitchellh/cli
+- package: github.com/mitchellh/colorstring
+- package: github.com/mitchellh/copystructure
+- package: github.com/mitchellh/go-homedir
+- package: github.com/mitchellh/go-linereader
+- package: github.com/mitchellh/go-wordwrap
+- package: github.com/mitchellh/hashstructure
+- package: github.com/mitchellh/mapstructure
+- package: github.com/mitchellh/panicwrap
+- package: github.com/mitchellh/prefixedio
+- package: github.com/mitchellh/reflectwalk
+- package: github.com/packer-community/winrmcp
+  subpackages:
+  - winrmcp
+- package: github.com/posener/complete
+  subpackages:
+  - match
+- package: github.com/ryanuber/columnize
+- package: github.com/satori/go.uuid
+- package: github.com/terraform-providers/terraform-provider-aws
+  subpackages:
+  - aws
+- package: github.com/terraform-providers/terraform-provider-openstack
+  subpackages:
+  - openstack
+- package: github.com/xanzy/ssh-agent
+- package: github.com/xlab/treeprint
+- package: github.com/zclconf/go-cty
+  subpackages:
+  - cty
+  - cty/convert
+  - cty/function
+  - cty/function/stdlib
+- package: go4.org
+  subpackages:
+  - syncutil/singleflight
+- package: golang.org/x/crypto
+  subpackages:
+  - acme/autocert
+  - bcrypt
+  - openpgp
+  - ssh
+  - ssh/agent
+  - ssh/terminal
+- package: golang.org/x/oauth2
+  subpackages:
+  - google
+  - jwt
+- package: golang.org/x/tools
+  subpackages:
+  - go/buildutil
+  - go/loader
+- package: google.golang.org/api
+  subpackages:
+  - compute/v1
+  - googleapi
+  - storage/v1
+testImport:
+- package: github.com/stretchr/testify
+  subpackages:
+  - assert
+  - require
+- package: golang.org/x/sync
+  subpackages:
+  - errgroup
