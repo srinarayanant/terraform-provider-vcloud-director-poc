@@ -1,7 +1,7 @@
-package shared
+package grpc
 
 import (
-	"../proto"
+	"vmware.com/vcd/proto"
 	"net/rpc"
 )
 

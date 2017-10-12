@@ -1,11 +1,11 @@
-package shared
+package grpc
 
 import (
 	"net/rpc"
 
 	"google.golang.org/grpc"
 
-	"../proto"
+	"vmware.com/vcd/proto"
 	"github.com/hashicorp/go-plugin"
 )
 

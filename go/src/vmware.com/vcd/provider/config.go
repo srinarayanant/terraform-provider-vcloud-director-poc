@@ -27,7 +27,7 @@ type VCDClient struct {
 	*plugin.GRPCClient
 }
 
-func (v VCDClient) getProvider() shared.PyVcloudProvider {
+func (v VCDClient) getProvider() grpc.PyVcloudProvider {
 
 	// Request the plugin
 	raw, err := v.GRPCClient.Dispense("PY_PLUGIN")
@@ -35,7 +35,7 @@ func (v VCDClient) getProvider() shared.PyVcloudProvider {
 		fmt.Println("Error:", err.Error())
 		os.Exit(1)
 	}
-	provider := raw.(shared.PyVcloudProvider)
+	provider := raw.(grpc.PyVcloudProvider)
 	return provider
 
 }
@@ -48,8 +48,8 @@ func (c Config) CreateClient() (*VCDClient, error) {
 
 	// We're a host. Start by launching the plugin process.
 	client := plugin.NewClient(&plugin.ClientConfig{
-		HandshakeConfig: shared.Handshake,
-		Plugins:         shared.PluginMap,
+		HandshakeConfig: grpc.Handshake,
+		Plugins:         grpc.PluginMap,
 		Cmd:             exec.Command("sh", "-c", os.Getenv("PY_PLUGIN")),
 		AllowedProtocols: []plugin.Protocol{
 			plugin.ProtocolNetRPC, plugin.ProtocolGRPC},
@@ -72,7 +72,7 @@ func (c Config) CreateClient() (*VCDClient, error) {
 
 	// We should have a KV store now! This feels like a normal interface
 	// implementation but is in fact over an RPC connection.
-	provider := raw.(shared.PyVcloudProvider)
+	provider := raw.(grpc.PyVcloudProvider)
 
 	result, err := provider.Login(c.User, c.Password, c.Org, c.Ip)
 
