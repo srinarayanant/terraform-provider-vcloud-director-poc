@@ -15,22 +15,22 @@ class PyVcloudProviderStub(object):
       channel: A grpc.Channel.
     """
     self.Login = channel.unary_unary(
-        '/pyvcloudprovider.PyVcloudProvider/Login',
+        '/proto.PyVcloudProvider/Login',
         request_serializer=pyvcloudprovider__pb2.TenantCredentials.SerializeToString,
         response_deserializer=pyvcloudprovider__pb2.LoginResult.FromString,
         )
     self.isPresentCatalog = channel.unary_unary(
-        '/pyvcloudprovider.PyVcloudProvider/isPresentCatalog',
+        '/proto.PyVcloudProvider/isPresentCatalog',
         request_serializer=pyvcloudprovider__pb2.Catalog.SerializeToString,
         response_deserializer=pyvcloudprovider__pb2.IsPresentCatalogResult.FromString,
         )
     self.CreateCatalog = channel.unary_unary(
-        '/pyvcloudprovider.PyVcloudProvider/CreateCatalog',
+        '/proto.PyVcloudProvider/CreateCatalog',
         request_serializer=pyvcloudprovider__pb2.Catalog.SerializeToString,
         response_deserializer=pyvcloudprovider__pb2.CreateCatalogResult.FromString,
         )
     self.DeleteCatalog = channel.unary_unary(
-        '/pyvcloudprovider.PyVcloudProvider/DeleteCatalog',
+        '/proto.PyVcloudProvider/DeleteCatalog',
         request_serializer=pyvcloudprovider__pb2.Catalog.SerializeToString,
         response_deserializer=pyvcloudprovider__pb2.DeleteCatalogResult.FromString,
         )
@@ -93,5 +93,5 @@ def add_PyVcloudProviderServicer_to_server(servicer, server):
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(
-      'pyvcloudprovider.PyVcloudProvider', rpc_method_handlers)
+      'proto.PyVcloudProvider', rpc_method_handlers)
   server.add_generic_rpc_handlers((generic_handler,))

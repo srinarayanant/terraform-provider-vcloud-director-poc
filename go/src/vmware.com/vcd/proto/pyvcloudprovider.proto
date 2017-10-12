@@ -6,7 +6,7 @@ option java_multiple_files = true;
 option java_package = "com.vmware.pyvcloud.provider";
 option java_outer_classname = "PyVcloudProviderProto";
 
-package pyvcloudprovider;
+package proto;
 
 // Interface exported by the server.
 service PyVcloudProvider {
