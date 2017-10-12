@@ -1,7 +1,8 @@
 echo 'rebuild go proto'
 
                                                                                                                                                             
-protoc go/src/vmware.com/vcd/proto/pyvcloudprovider.proto --go_out go/src/vmware.com/vcd/proto/
+protoc -I go/src/vmware.com/vcd/proto/  go/src/vmware.com/vcd/proto/pyvcloudprovider.proto --go_out=plugins=grpc:go/src/vmware.com/vcd/proto/
+
 
 echo 'rebuild python'
 
