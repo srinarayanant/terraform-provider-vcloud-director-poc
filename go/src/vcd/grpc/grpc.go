@@ -1,7 +1,7 @@
 package grpc
 
 import (
-	"../proto"
+	"github.com/srinarayanant/terraform-provider-vclouddirector/go/src/vcd/proto"
 	"golang.org/x/net/context"
 )
 
