@@ -1,2 +1,2 @@
-go build -o terraform-provider-pyvcloudvcd
+go build -o terraform-provider-vclouddirector
 
