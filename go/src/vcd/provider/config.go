@@ -9,7 +9,7 @@ import (
 
 	"github.com/hashicorp/go-plugin"
 
-	"../grpc"
+	"github.com/srinarayanant/terraform-provider-vclouddirector/vcd/grpc"
 )
 
 type Config struct {
@@ -86,4 +86,3 @@ func (c Config) CreateClient() (*VCDClient, error) {
 	return vcdclient, err
 
 }
-
