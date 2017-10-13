@@ -1,0 +1,3 @@
+
+./rmtrace.sh
+./build.sh 
