@@ -1,4 +1,4 @@
-package main
+package provider
 
 import (
 	"fmt"
@@ -7,12 +7,13 @@ import (
 	"os"
 	"os/exec"
 
+	"../grpc"
 	"github.com/hashicorp/go-plugin"
-"runtime/debug"
-	"vmware.com/vcd/grpc"
+	"runtime/debug"
+	"testing"
 )
 
-func main() {
+func TestProvider(t *testing.T) {
 	// We don't want to see the plugin logs.
 	//log.SetOutput(ioutil.Discard)
 	log.SetOutput(os.Stdout)
@@ -47,14 +48,14 @@ func main() {
 
 	lresult, err := kv.Login("user1", "Admin!23", "O1", "10.112.83.27")
 	if err != nil {
-debug.PrintStack()
-			log.Fatal("err =======       ",err);
-			
-		fmt.Errorf("error in login %s",err);	
+		debug.PrintStack()
+		log.Fatal("err =======       ", err)
+
+		fmt.Errorf("error in login %s", err)
 	}
 	cresult, err := kv.IsPresentCatalog("c1")
 	log.Printf("[INFO] ======================== resource======= \n\n\n\n\n\n")
-	
+
 	if cresult.Present {
 		fmt.Println("=======================  ppp resent ")
 	}
@@ -68,4 +69,3 @@ debug.PrintStack()
 	fmt.Println((lresult))
 
 }
-

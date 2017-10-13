@@ -1,7 +1,7 @@
 package grpc
 
 import (
-	"vmware.com/vcd/proto"
+	"../proto"
 	"net/rpc"
 )
 
@@ -14,4 +14,3 @@ type RPCServer struct {
 	// This is the real implementation
 	Impl proto.PyVcloudProviderServer
 }
-

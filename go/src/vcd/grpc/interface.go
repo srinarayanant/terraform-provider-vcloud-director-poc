@@ -5,7 +5,7 @@ import (
 
 	"google.golang.org/grpc"
 
-	"vmware.com/vcd/proto"
+	"../proto"
 	"github.com/hashicorp/go-plugin"
 )
 
@@ -57,4 +57,3 @@ func (p *PyVcloudProviderPlugin) GRPCServer(s *grpc.Server) error {
 func (p *PyVcloudProviderPlugin) GRPCClient(c *grpc.ClientConn) (interface{}, error) {
 	return &GRPCClient{client: proto.NewPyVcloudProviderClient(c)}, nil
 }
-

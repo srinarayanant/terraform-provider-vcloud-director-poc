@@ -1,7 +1,7 @@
 package main
 
 import (
-	"./vmware.com/vcd/provider"
+	"./vcd/provider"
 	"github.com/hashicorp/terraform/plugin"
 	"github.com/hashicorp/terraform/terraform"
 )
@@ -13,4 +13,3 @@ func main() {
 		},
 	})
 }
-

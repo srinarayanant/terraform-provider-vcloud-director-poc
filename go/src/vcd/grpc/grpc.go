@@ -1,7 +1,7 @@
 package grpc
 
 import (
-	"vmware.com/vcd/proto"
+	"../proto"
 	"golang.org/x/net/context"
 )
 
@@ -76,4 +76,3 @@ func (m *GRPCServer) DeleteCatalog(
 	return &proto.DeleteCatalogResult{Deleted: v.Deleted}, err
 
 }
-

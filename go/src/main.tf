@@ -14,7 +14,7 @@ provider "pyvcloudvcd" {
 
 
 resource "pyvcloudvcd_catalog" "cata1" {
-        name    = "ct10"
+        name    = "ct12"
         description = "desc"
         shared  = "true"
 
