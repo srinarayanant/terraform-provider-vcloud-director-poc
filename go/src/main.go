@@ -1,9 +1,9 @@
 package main
 
 import (
-	"./vcd/provider"
 	"github.com/hashicorp/terraform/plugin"
 	"github.com/hashicorp/terraform/terraform"
+	"github.com/srinarayanant/terraform-provider-vclouddirector/go/src/vcd/provider"
 )
 
 func main() {
