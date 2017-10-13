@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 from concurrent import futures
 import sys
 import time

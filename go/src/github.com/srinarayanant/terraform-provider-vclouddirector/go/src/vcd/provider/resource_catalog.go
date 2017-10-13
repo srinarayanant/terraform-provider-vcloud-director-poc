@@ -50,6 +50,18 @@ func resourceCatalogCreate(d *schema.ResourceData, m interface{}) error {
 
 	provider := vcdClient.getProvider()
 
+	resp, errp := provider.IsPresentCatalog(cname)
+
+	if errp != nil {
+		return fmt.Errorf("Error Creating catalog :%v %#v", cname, errp)
+	}
+
+	if resp.Present {
+		fmt.Printf("catalog %v is present  ================ ", cname)
+		d.SetId(cname)
+		return nil
+	}
+
 	res, err := provider.CreateCatalog(cname, desc, shared)
 
 	if err != nil {
@@ -117,4 +129,3 @@ func resourceCatalogDelete(d *schema.ResourceData, m interface{}) error {
 
 	return nil
 }
-

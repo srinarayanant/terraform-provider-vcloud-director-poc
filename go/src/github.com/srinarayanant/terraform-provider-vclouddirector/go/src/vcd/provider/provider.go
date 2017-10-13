@@ -7,7 +7,7 @@ import (
 	//"os"
 )
 
-// Provider returns a terraform.ResourceProvider.
+// .. Provider returns a terraform.ResourceProvider.
 func Provider() terraform.ResourceProvider {
 	return &schema.Provider{
 		Schema: map[string]*schema.Schema{
@@ -69,7 +69,7 @@ func Provider() terraform.ResourceProvider {
 
 		ResourcesMap: map[string]*schema.Resource{
 
-			"pyvcloudvcd_catalog": resourceCatalog(),
+			"vclouddirector_catalog": resourceCatalog(),
 			//			"vcd_network":         resourceVcdNetwork(),
 			//			"vcd_vapp":            resourceVcdVApp(),
 			//			"vcd_firewall_rules":  resourceVcdFirewallRules(),
@@ -106,4 +106,3 @@ func providerConfigure(d *schema.ResourceData) (interface{}, error) {
 	vcdclient, err := config.CreateClient()
 	return vcdclient, err
 }
-

@@ -1,7 +1,6 @@
 
-# terraform
 
-provider "pyvcloudvcd" {
+provider "vclouddirector" {
   user                 = "user1"
   password             = "Admin!23"
   org                  = "O1"
@@ -13,15 +12,15 @@ provider "pyvcloudvcd" {
 
 
 
-resource "pyvcloudvcd_catalog" "cata1" {
-        name    = "ct12"
+resource "vclouddirector_catalog" "cata1" {
+        name    = "ct13"
         description = "desc"
         shared  = "true"
 
 }
 
 
-resource "pyvcloudvcd_catalog" "cata2" {
+resource "vclouddirector_catalog" "cata2" {
         name    = "ct11"
         description = "desc"
         shared  = "true"
