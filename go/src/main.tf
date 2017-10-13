@@ -13,7 +13,7 @@ provider "vclouddirector" {
 
 
 resource "vclouddirector_catalog" "cata1" {
-        name    = "ct13"
+        name    = "ct14"
         description = "desc"
         shared  = "true"
 
