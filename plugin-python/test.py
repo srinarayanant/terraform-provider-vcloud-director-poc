@@ -27,15 +27,15 @@ def vcdlogin(  host, user, password, org):
 		logging.info(" =====  X VCloud ========\n  \n"+x + "\n \n")
 
 
-		logging.info( str( catalog.isPresent(client,"c2").present) + "  ***********  \n ===== is presen  \n ");
+		pRes= catalog.isPresent(client,"c1")
 
 		res=catalog.create(client,"c3","c2UPD")
 
-		logging.info(" is create ===== \n \n "+ str(res.created)+ "\n \n ")
+		#logging.info(" is create ===== \n \n "+ str(res.created)+ "\n \n ")
 
 
-		logging.info(" Delete  ===== \n \n "+ str(catalog.delete(client,"c3").deleted)+ "\n \n ")
-		logging.info(" Delete  ===== \n \n "+ str(catalog.delete(client,"c4").deleted)+ "\n \n ")
+		#logging.info(" Delete  ===== \n \n "+ str(catalog.delete(client,"c3").deleted)+ "\n \n ")
+		#logging.info(" Delete  ===== \n \n "+ str(catalog.delete(client,"c4").deleted)+ "\n \n ")
 
 		return client;
 	except Exception as e:

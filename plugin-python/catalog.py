@@ -16,7 +16,7 @@ def isPresent(client,name ):
 
 	try:
 		logged_in_org = client.get_org()
-        	org = Org(client, org_resource=logged_in_org)
+        	org = Org(client, resource=logged_in_org)
 		result=pyvcloudprovider_pb2.IsPresentCatalogResult()
                 result.present = False
 		try:
@@ -27,7 +27,7 @@ def isPresent(client,name ):
 		return result
 
 	except Exception as e:
-		logging.warn("error occured",e)
+		logging.warn("=====>>>>>>>  error occured",e)
 
 
 def create(client, name , description):
@@ -35,7 +35,9 @@ def create(client, name , description):
 
         try:
                 logged_in_org = client.get_org()
-                org = Org(client, org_resource=logged_in_org)
+		logging.info("loged in org ================ \n\n\n\n\n")
+                org = Org(client, resource=logged_in_org)
+		logging.info("\n\n\n\n\n\n            got ord ,,,, ================== \n\n\n")
                 result=pyvcloudprovider_pb2.CreateCatalogResult()
                 result.created = False
                 try:
@@ -46,6 +48,8 @@ def create(client, name , description):
                 return result
 
         except Exception as e:
+		print(e)
+		print("\n")
                 logging.warn("error occured",e)
 
 
@@ -54,7 +58,7 @@ def delete(client, name ):
 
         try:
                 logged_in_org = client.get_org()
-                org = Org(client, org_resource=logged_in_org)
+                org = Org(client, resource=logged_in_org)
                 result=pyvcloudprovider_pb2.DeleteCatalogResult()
                 result.deleted = False
                 try:
