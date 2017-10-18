@@ -11,25 +11,26 @@ import logging
 import catalog
 
 def vcdlogin(  host, user, password, org):
-	logging.basicConfig(level=logging.DEBUG)
-	logging.info("login called")
- 	client = Client(host,
+    logging.basicConfig(level=logging.DEBUG)
+    logging.info("login called")
+    client = Client(host,
                     api_version="27.0",
                     verify_ssl_certs=False,
                     log_file='vcd.log',
                     log_requests=True,
                     log_headers=True,
                     log_bodies=True
-	)
-	try:
-		client.set_credentials(BasicLoginCredentials(user, org, password))
-		x=client._session.headers['x-vcloud-authorization']
-		logging.info("X VCloud "+x)
-#		catalog.create(client,"c2","c2desc")
-		return client;
-	except Exception as e:
-		print('error occured',e)
+    )
+    try:
+        client.set_credentials(BasicLoginCredentials(user, org, password))
+        x=client._session.headers['x-vcloud-authorization']
+        logging.info("X VCloud "+x)
+#       catalog.create(client,"c2","c2desc")
+        return client;
+    except Exception as e:
+        print('error occured',e)
 
 
 if __name__ == '__main__':
     vcdlogin("10.112.83.27","user1","Admin!23","O1");
+
