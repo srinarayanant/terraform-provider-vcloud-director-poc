@@ -78,7 +78,7 @@ def delete(client, name ):
 
 
 def upload_media(client,catalog_name,file_name,item_name):
-        logging.debug("=== upload_media to  catalog called === \n")
+        logging.debug("==== upload_media to  catalog called === \n")
         try:
                 logged_in_org = client.get_org()
                 org = Org(client, resource=logged_in_org)       
