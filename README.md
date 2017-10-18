@@ -22,7 +22,36 @@ Protoc - for Devs making changes to the protoc file , required for rebuilding th
 The Below Steps are validated on Centos to set up the development environment 
 
 
-python 3.6
+# Install python 3.6
 
- pip3.6 install  grpcio
- pip3.6 install --user grpcio_health_checking
+wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tgz
+./configure 
+make
+make install
+
+# Install Dependecies 
+ pip3.6 install grpcio
+ pip3.6 install grpcio-tools
+ pip3.6 install grpcio_health_checking
+
+# Install GO
+
+ wget https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gz
+
+ export PATH=/opt/go/bin:$PATH
+ export  GOROOT=/opt/go
+ export GOPATH=/home/~~
+
+# Go Get dependencies
+
+ go get github.com/hashicorp/terraform/
+ go get github.com/golang/protobuf/proto
+ go get github.com/hashicorp/go-plugin
+
+ go get google.golang.org/grpc 
+
+
+# Building the Project 
+
+cd terraform-provider-vclouddirector/go/src
+ ./build.sh
