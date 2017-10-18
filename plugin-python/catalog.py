@@ -77,6 +77,16 @@ def delete(client, name ):
 
 
 
+def upload_media(client,catalog_name,file_name,item_name):
+        logging.debug("=== upload_media to  catalog called === \n")
+        try:
+                logged_in_org = client.get_org()
+                org = Org(client, resource=logged_in_org)       
+                org.upload_media(catalog_name=catalog_name,file_name=file_name,item_name=item_name)
+        except Exception as e:
+		logging.warn("error occured",e)                            
+
+
 
 
 
