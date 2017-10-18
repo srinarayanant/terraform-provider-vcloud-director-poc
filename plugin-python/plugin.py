@@ -9,7 +9,7 @@ import pyvcloudprovider_pb2_grpc
 import pyvcloudprovider_pb2
 
 from grpc_health.v1.health import HealthServicer
-from grpc_health.v1 import health_pb2, health_pb2_grpc
+from grpc_health.v1 import healthth_pb2, health_pb2_grpc
 
 import login
 import logging
@@ -24,15 +24,15 @@ class PyVcloudProviderServicer(pyvcloudprovider_pb2_grpc.PyVcloudProviderService
     
 
     def isPresentCatalog(self, request, context):
-    return catalog.isPresent(self.client,request.name)
+        return catalog.isPresent(self.client,request.name)
 
     def Login(self, request, context):
         resp = "GOT LOGIN CRED = "+request.username
         resp = resp +" "+ request.password
-    resp = resp +" "+ request.org + " URL "+ request.ip +"  hurra!!!"
+        resp = resp +" "+ request.org + " URL "+ request.ip +"  hurra!!!"
         result = pyvcloudprovider_pb2.LoginResult()
         result.token = resp
-    self.client=login.vcdlogin( request.ip,request.username,request.password,request.org)
+        self.client=login.vcdlogin( request.ip,request.username,request.password,request.org)
         return result
     
     def CreateCatalog(self, request, context):
