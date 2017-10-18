@@ -10,84 +10,76 @@ import pyvcloudprovider_pb2
 import requests
 import logging
 
-def isPresent(client,name ):
-	logging.basicConfig(level=logging.DEBUG)
-	logging.debug("=== isPresent called === \n")
 
-	try:
-		logged_in_org = client.get_org()
-        	org = Org(client, resource=logged_in_org)
-		result=pyvcloudprovider_pb2.IsPresentCatalogResult()
+def isPresent(client, name):
+        logging.basicConfig(level=logging.DEBUG)
+        logging.debug("=== isPresent called === \n")
+
+        try:
+                logged_in_org = client.get_org()
+                org = Org(client, resource=logged_in_org)
+                result = pyvcloudprovider_pb2.IsPresentCatalogResult()
                 result.present = False
-		try:
-			catalog = org.get_catalog(name)
-			result.present = True
-		except Exception as e:
-			logging.info("catalog is not present")
-		return result
+                try:
+                        catalog = org.get_catalog(name)
+                        result.present = True
+                except Exception as e:
+                        logging.info("catalog is not present")
+                return result
 
-	except Exception as e:
-		logging.warn("=====>>>>>>>  error occured",e)
+        except Exception as e:
+                logging.warn("=====>>>>>>>  error occured", e)
 
 
-def create(client, name , description):
+def create(client, name, description):
         logging.debug("=== create catalog called === \n")
 
         try:
                 logged_in_org = client.get_org()
-		logging.info("loged in org ================ \n\n\n\n\n")
+                logging.info("loged in org ================ \n\n\n\n\n")
                 org = Org(client, resource=logged_in_org)
-		logging.info("\n\n\n\n\n\n            got ord ,,,, ================== \n\n\n")
-                result=pyvcloudprovider_pb2.CreateCatalogResult()
+                logging.info(
+                    "\n\n\n\n\n\n            got ord ,,,, ================== \n\n\n")
+                result = pyvcloudprovider_pb2.CreateCatalogResult()
                 result.created = False
                 try:
-                        catalog = org.create_catalog(name,description)
+                        catalog = org.create_catalog(name, description)
                         result.created = True
                 except Exception as e:
-                        logging.info("\n Not Created catalog ["+name+"]")
+                        logging.info("\n Not Created catalog [" + name + "]")
                 return result
 
         except Exception as e:
-		print(e)
-		print("\n")
-                logging.warn("error occured",e)
+                print(e)
+                print("\n")
+                logging.warn("error occured", e)
 
 
-def delete(client, name ):
+def delete(client, name):
         logging.debug("=== delete catalog called === \n")
 
         try:
                 logged_in_org = client.get_org()
                 org = Org(client, resource=logged_in_org)
-                result=pyvcloudprovider_pb2.DeleteCatalogResult()
+                result = pyvcloudprovider_pb2.DeleteCatalogResult()
                 result.deleted = False
                 try:
                         catalog = org.delete_catalog(name)
                         result.deleted = True
                 except Exception as e:
-                        logging.info("\n Not Deleted  catalog ["+name+"]")
+                        logging.info("\n Not Deleted  catalog [" + name + "]")
                 return result
 
         except Exception as e:
-                logging.warn("error occured",e)
+                logging.warn("error occured", e)
 
 
-
-
-
-
-
-def upload_media(client,catalog_name,file_name,item_name):
+def upload_media(client, catalog_name, file_name, item_name):
         logging.debug("===== upload_media to  catalog called === \n")
         try:
                 logged_in_org = client.get_org()
-                org = Org(client, resource=logged_in_org)       
-                org.upload_media(catalog_name=catalog_name,file_name=file_name,item_name=item_name)
+                org = Org(client, resource=logged_in_org)
+                org.upload_media(catalog_name=catalog_name,
+                                 file_name=file_name, item_name=item_name)
         except Exception as e:
-		logging.warn("error occured",e)                            
-
-
-
-
-
-
+                logging.warn("error occured", e)
