@@ -61,7 +61,7 @@ func main() {
 		fmt.Errorf("error in login %s", err)
 	}
 	if cresult.Present {
-		fmt.Printl("=======================  ppp resent ")
+		fmt.Println("=======================  ppp resent ")
 	}
 
 	kv.CreateCatalog("c5", "de", false)
