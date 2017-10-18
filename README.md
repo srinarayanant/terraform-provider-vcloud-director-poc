@@ -19,3 +19,10 @@ Python
 Protoc - for Devs making changes to the protoc file , required for rebuilding the GO and Python interface definitions 
 
 
+The Below Steps are validated on Centos to set up the development environment 
+
+
+python 3.6
+
+ pip3.6 install  grpcio
+ pip3.6 install --user grpcio_health_checking
