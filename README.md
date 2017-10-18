@@ -31,7 +31,9 @@ make install
 
 # Install Dependecies 
  pip3.6 install grpcio
+ 
  pip3.6 install grpcio-tools
+ 
  pip3.6 install grpcio_health_checking
 
 # Install GO
@@ -39,13 +41,17 @@ make install
  wget https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gz
 
  export PATH=/opt/go/bin:$PATH
+ 
  export  GOROOT=/opt/go
+ 
  export GOPATH=/home/~~
 
 # Go Get dependencies
 
  go get github.com/hashicorp/terraform/
+ 
  go get github.com/golang/protobuf/proto
+ 
  go get github.com/hashicorp/go-plugin
 
  go get google.golang.org/grpc 
@@ -54,4 +60,5 @@ make install
 # Building the Project 
 
 cd terraform-provider-vclouddirector/go/src
+
  ./build.sh
