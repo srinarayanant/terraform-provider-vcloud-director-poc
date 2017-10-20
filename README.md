@@ -105,10 +105,44 @@ $ ldconfig # refresh shared library cache.
 call protoc   from the terminal to make sure its installed 
 
 ```
-protoc
+[root@worker3 terraform-provider-vcloud-director]# protoc --version
+libprotoc 3.4.0
 ```
 
+# Rebuilding project after changes to the proto buffer definition
 
+Below is the protoc file with the definition
+go/src/github.com/srinarayanant/terraform-provider-vcloud-director/go/src/vcd/proto/pyvcloudprovider.proto
+
+Any change to the protoc will require a regeneration of the python and go interface definition
+
+Thie is achieved by execution the rebuildprotoc script
+
+```
+
+[root@worker3 terraform-provider-vcloud-director]# ./rebuildproto.sh 
+rebuild go proto
+go/src/github.com/srinarayanant/terraform-provider-vcloud-director/go/src/vcd/proto
+rebuild python
+[root@worker3 terraform-provider-vcloud-director]# 
+```
+
+Generated Files 
+
+```
+Go
+/home/terraform-provider-vcloud-director/go/src/github.com/srinarayanant/terraform-provider-vcloud-director/go/src/vcd/proto/pyvcloudprovider.pb.go 
+
+Python
+[root@worker3 plugin-python]# pwd
+/home/terraform-provider-vcloud-director/plugin-python
+[root@worker3 plugin-python]# ls pyvcloudprovider_pb2*
+pyvcloudprovider_pb2_grpc.py  pyvcloudprovider_pb2.py
+[root@worker3 plugin-python]#
+```
+
+Usefull ref
+https://groups.google.com/forum/#!topic/golang-nuts/Qs8d56uavVs
 
 
 # Sample make check result from protoc make check
