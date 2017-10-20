@@ -316,10 +316,61 @@ github.com/srinarayanant/terraform-provider-vcloud-director/go/src/vcd/grpc/inte
   *GRPCServer does not implement "github.com/srinarayanant/terraform-provider-vcloud-director/go/src/vcd/proto".PyVcloudProviderServer (missing CatalogUploadMedia method)
 ```
 
-Edit grpc.go
+
+Reference of the new types
+```
+type CatalogUploadMediaInfo struct {
+  FilePath string `protobuf:"bytes,1,opt,name=file_path,json=filePath" json:"file_path,omitempty"`
+}
+
+func (m *CatalogUploadMediaInfo) Reset()                    { *m = CatalogUploadMediaInfo{} }
+func (m *CatalogUploadMediaInfo) String() string            { return proto1.CompactTextString(m) }
+func (*CatalogUploadMediaInfo) ProtoMessage()               {}
+func (*CatalogUploadMediaInfo) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{6} }
+
+func (m *CatalogUploadMediaInfo) GetFilePath() string {
+  if m != nil {
+    return m.FilePath
+  }
+  return ""
+}
+
+type CatalogUploadMediaResult struct {
+  Status string `protobuf:"bytes,1,opt,name=status" json:"status,omitempty"`
+}
+
+func (m *CatalogUploadMediaResult) Reset()                    { *m = CatalogUploadMediaResult{} }
+func (m *CatalogUploadMediaResult) String() string            { return proto1.CompactTextString(m) }
+func (*CatalogUploadMediaResult) ProtoMessage()               {}
+func (*CatalogUploadMediaResult) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{7} }
+
+func (m *CatalogUploadMediaResult) GetStatus() string {
+  if m != nil {
+    return m.Status
+  }
+  return ""
+}
 
 ```
 
+Edit grpc.go add section for CatalogMediaUpload
+
+```
+// impl for CatalogUploadMedia
+func (m *GRPCClient) CatalogUploadMedia(FilePath string) (*proto.CatalogUploadMediaResult, error) {
+  result, err := m.client.CatalogUploadMedia(context.Background(), &proto.CatalogUploadMediaInfo{
+    FilePath: FilePath,
+  })
+  return result, err
+}
+
+func (m *GRPCServer) CatalogUploadMedia(
+  ctx context.Context,
+  req *proto.CatalogUploadMediaInfo) (*proto.CatalogUploadMediaResult, error) {
+  v, err := m.Impl.CatalogUploadMedia(ctx, req)
+  return &proto.CatalogUploadMediaResult{Status: v.Status}, err
+
+}
 
 ```
 
