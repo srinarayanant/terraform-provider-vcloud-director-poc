@@ -7,7 +7,7 @@ import (
 	"os"
 	"os/exec"
 
-	"github.com/srinarayanant/terraform-provider-vclouddirector/go/src/vcd/grpc"
+	"github.com/srinarayanant/terraform-provider-vcloud-director/go/src/vcd/grpc"
 
 	"github.com/hashicorp/go-plugin"
 	"runtime/debug"
