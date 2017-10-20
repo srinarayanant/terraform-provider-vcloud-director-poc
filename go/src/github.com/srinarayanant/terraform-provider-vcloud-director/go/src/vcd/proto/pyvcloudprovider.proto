@@ -15,7 +15,7 @@ service PyVcloudProvider {
   rpc isPresentCatalog (  Catalog ) returns ( IsPresentCatalogResult ) {}
   rpc CreateCatalog ( Catalog ) returns ( CreateCatalogResult )  {}
   rpc DeleteCatalog ( Catalog ) returns ( DeleteCatalogResult )  {}
-
+ rpc CatalogUploadMedia ( CatalogUploadMediaInfo ) returns ( CatalogUploadMediaResult )  {}
 }
 
 //Tenant VCD crendentials
@@ -49,4 +49,11 @@ message CreateCatalogResult{
 
 message DeleteCatalogResult{
         bool deleted = 1;
+}
+message CatalogUploadMediaInfo{
+	string file_path =1 ;
+}
+
+message CatalogUploadMediaResult{
+        string status =1 ;
 }

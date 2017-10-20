@@ -1,2 +1,2 @@
-go build -o terraform-provider-vclouddirector
+go build -o terraform-provider-vcloud-director
 
