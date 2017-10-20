@@ -173,9 +173,6 @@ panic: http: multiple registrations for /debug/requests
  rm -rf $GOPATH/src/github.com/hashicorp/terraform/vendor/golang.org/x/net/trace
 
 ```
-
-
-
 [root@worker3 src]# terraform plan
 Refreshing Terraform state in-memory prior to plan...
 The refreshed state will be used to calculate this plan, but will not be
