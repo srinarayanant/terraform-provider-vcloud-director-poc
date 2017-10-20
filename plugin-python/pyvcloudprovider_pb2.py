@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='pyvcloudprovider.proto',
   package='proto',
   syntax='proto3',
-  serialized_pb=_b('\n\x16pyvcloudprovider.proto\x12\x05proto\"P\n\x11TenantCredentials\x12\x10\n\x08username\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\x12\x0b\n\x03org\x18\x03 \x01(\t\x12\n\n\x02ip\x18\x04 \x01(\t\"\x1c\n\x0bLoginResult\x12\r\n\x05token\x18\x01 \x01(\t\"<\n\x07\x43\x61talog\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x0e\n\x06shared\x18\x03 \x01(\x08\")\n\x16IsPresentCatalogResult\x12\x0f\n\x07present\x18\x01 \x01(\x08\"&\n\x13\x43reateCatalogResult\x12\x0f\n\x07\x63reated\x18\x01 \x01(\x08\"&\n\x13\x44\x65leteCatalogResult\x12\x0f\n\x07\x64\x65leted\x18\x01 \x01(\x08\"+\n\x16\x43\x61talogUploadMediaInfo\x12\x11\n\tfile_path\x18\x01 \x01(\t\"*\n\x18\x43\x61talogUploadMediaResult\x12\x0e\n\x06status\x18\x01 \x01(\t2\xe6\x02\n\x10PyVcloudProvider\x12\x37\n\x05Login\x12\x18.proto.TenantCredentials\x1a\x12.proto.LoginResult\"\x00\x12\x43\n\x10isPresentCatalog\x12\x0e.proto.Catalog\x1a\x1d.proto.IsPresentCatalogResult\"\x00\x12=\n\rCreateCatalog\x12\x0e.proto.Catalog\x1a\x1a.proto.CreateCatalogResult\"\x00\x12=\n\rDeleteCatalog\x12\x0e.proto.Catalog\x1a\x1a.proto.DeleteCatalogResult\"\x00\x12V\n\x12\x43\x61talogUploadMedia\x12\x1d.proto.CatalogUploadMediaInfo\x1a\x1f.proto.CatalogUploadMediaResult\"\x00\x42\x37\n\x1c\x63om.vmware.pyvcloud.providerB\x15PyVcloudProviderProtoP\x01\x62\x06proto3')
+  serialized_pb=_b('\n\x16pyvcloudprovider.proto\x12\x05proto\"P\n\x11TenantCredentials\x12\x10\n\x08username\x18\x01 \x01(\t\x12\x10\n\x08password\x18\x02 \x01(\t\x12\x0b\n\x03org\x18\x03 \x01(\t\x12\n\n\x02ip\x18\x04 \x01(\t\"\x1c\n\x0bLoginResult\x12\r\n\x05token\x18\x01 \x01(\t\"<\n\x07\x43\x61talog\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x0e\n\x06shared\x18\x03 \x01(\x08\")\n\x16IsPresentCatalogResult\x12\x0f\n\x07present\x18\x01 \x01(\x08\"&\n\x13\x43reateCatalogResult\x12\x0f\n\x07\x63reated\x18\x01 \x01(\x08\"&\n\x13\x44\x65leteCatalogResult\x12\x0f\n\x07\x64\x65leted\x18\x01 \x01(\x08\x32\x8e\x02\n\x10PyVcloudProvider\x12\x37\n\x05Login\x12\x18.proto.TenantCredentials\x1a\x12.proto.LoginResult\"\x00\x12\x43\n\x10isPresentCatalog\x12\x0e.proto.Catalog\x1a\x1d.proto.IsPresentCatalogResult\"\x00\x12=\n\rCreateCatalog\x12\x0e.proto.Catalog\x1a\x1a.proto.CreateCatalogResult\"\x00\x12=\n\rDeleteCatalog\x12\x0e.proto.Catalog\x1a\x1a.proto.DeleteCatalogResult\"\x00\x42\x37\n\x1c\x63om.vmware.pyvcloud.providerB\x15PyVcloudProviderProtoP\x01\x62\x06proto3')
 )
 
 
@@ -245,76 +245,12 @@ _DELETECATALOGRESULT = _descriptor.Descriptor(
   serialized_end=328,
 )
 
-
-_CATALOGUPLOADMEDIAINFO = _descriptor.Descriptor(
-  name='CatalogUploadMediaInfo',
-  full_name='proto.CatalogUploadMediaInfo',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='file_path', full_name='proto.CatalogUploadMediaInfo.file_path', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=330,
-  serialized_end=373,
-)
-
-
-_CATALOGUPLOADMEDIARESULT = _descriptor.Descriptor(
-  name='CatalogUploadMediaResult',
-  full_name='proto.CatalogUploadMediaResult',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='status', full_name='proto.CatalogUploadMediaResult.status', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=375,
-  serialized_end=417,
-)
-
 DESCRIPTOR.message_types_by_name['TenantCredentials'] = _TENANTCREDENTIALS
 DESCRIPTOR.message_types_by_name['LoginResult'] = _LOGINRESULT
 DESCRIPTOR.message_types_by_name['Catalog'] = _CATALOG
 DESCRIPTOR.message_types_by_name['IsPresentCatalogResult'] = _ISPRESENTCATALOGRESULT
 DESCRIPTOR.message_types_by_name['CreateCatalogResult'] = _CREATECATALOGRESULT
 DESCRIPTOR.message_types_by_name['DeleteCatalogResult'] = _DELETECATALOGRESULT
-DESCRIPTOR.message_types_by_name['CatalogUploadMediaInfo'] = _CATALOGUPLOADMEDIAINFO
-DESCRIPTOR.message_types_by_name['CatalogUploadMediaResult'] = _CATALOGUPLOADMEDIARESULT
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 TenantCredentials = _reflection.GeneratedProtocolMessageType('TenantCredentials', (_message.Message,), dict(
@@ -359,20 +295,6 @@ DeleteCatalogResult = _reflection.GeneratedProtocolMessageType('DeleteCatalogRes
   ))
 _sym_db.RegisterMessage(DeleteCatalogResult)
 
-CatalogUploadMediaInfo = _reflection.GeneratedProtocolMessageType('CatalogUploadMediaInfo', (_message.Message,), dict(
-  DESCRIPTOR = _CATALOGUPLOADMEDIAINFO,
-  __module__ = 'pyvcloudprovider_pb2'
-  # @@protoc_insertion_point(class_scope:proto.CatalogUploadMediaInfo)
-  ))
-_sym_db.RegisterMessage(CatalogUploadMediaInfo)
-
-CatalogUploadMediaResult = _reflection.GeneratedProtocolMessageType('CatalogUploadMediaResult', (_message.Message,), dict(
-  DESCRIPTOR = _CATALOGUPLOADMEDIARESULT,
-  __module__ = 'pyvcloudprovider_pb2'
-  # @@protoc_insertion_point(class_scope:proto.CatalogUploadMediaResult)
-  ))
-_sym_db.RegisterMessage(CatalogUploadMediaResult)
-
 
 DESCRIPTOR.has_options = True
 DESCRIPTOR._options = _descriptor._ParseOptions(descriptor_pb2.FileOptions(), _b('\n\034com.vmware.pyvcloud.providerB\025PyVcloudProviderProtoP\001'))
@@ -383,8 +305,8 @@ _PYVCLOUDPROVIDER = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   options=None,
-  serialized_start=420,
-  serialized_end=778,
+  serialized_start=331,
+  serialized_end=601,
   methods=[
   _descriptor.MethodDescriptor(
     name='Login',
@@ -420,15 +342,6 @@ _PYVCLOUDPROVIDER = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_CATALOG,
     output_type=_DELETECATALOGRESULT,
-    options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='CatalogUploadMedia',
-    full_name='proto.PyVcloudProvider.CatalogUploadMedia',
-    index=4,
-    containing_service=None,
-    input_type=_CATALOGUPLOADMEDIAINFO,
-    output_type=_CATALOGUPLOADMEDIARESULT,
     options=None,
   ),
 ])
@@ -476,11 +389,6 @@ try:
           request_serializer=Catalog.SerializeToString,
           response_deserializer=DeleteCatalogResult.FromString,
           )
-      self.CatalogUploadMedia = channel.unary_unary(
-          '/proto.PyVcloudProvider/CatalogUploadMedia',
-          request_serializer=CatalogUploadMediaInfo.SerializeToString,
-          response_deserializer=CatalogUploadMediaResult.FromString,
-          )
 
 
   class PyVcloudProviderServicer(object):
@@ -515,13 +423,6 @@ try:
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
-    def CatalogUploadMedia(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
-      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-      context.set_details('Method not implemented!')
-      raise NotImplementedError('Method not implemented!')
-
 
   def add_PyVcloudProviderServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -544,11 +445,6 @@ try:
             servicer.DeleteCatalog,
             request_deserializer=Catalog.FromString,
             response_serializer=DeleteCatalogResult.SerializeToString,
-        ),
-        'CatalogUploadMedia': grpc.unary_unary_rpc_method_handler(
-            servicer.CatalogUploadMedia,
-            request_deserializer=CatalogUploadMediaInfo.FromString,
-            response_serializer=CatalogUploadMediaResult.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -577,10 +473,6 @@ try:
       pass
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
     def DeleteCatalog(self, request, context):
-      # missing associated documentation comment in .proto file
-      pass
-      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-    def CatalogUploadMedia(self, request, context):
       # missing associated documentation comment in .proto file
       pass
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
@@ -614,11 +506,6 @@ try:
       pass
       raise NotImplementedError()
     DeleteCatalog.future = None
-    def CatalogUploadMedia(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
-      raise NotImplementedError()
-    CatalogUploadMedia.future = None
 
 
   def beta_create_PyVcloudProvider_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
@@ -628,21 +515,18 @@ try:
     file not marked beta) for all further purposes. This function was
     generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
     request_deserializers = {
-      ('proto.PyVcloudProvider', 'CatalogUploadMedia'): CatalogUploadMediaInfo.FromString,
       ('proto.PyVcloudProvider', 'CreateCatalog'): Catalog.FromString,
       ('proto.PyVcloudProvider', 'DeleteCatalog'): Catalog.FromString,
       ('proto.PyVcloudProvider', 'Login'): TenantCredentials.FromString,
       ('proto.PyVcloudProvider', 'isPresentCatalog'): Catalog.FromString,
     }
     response_serializers = {
-      ('proto.PyVcloudProvider', 'CatalogUploadMedia'): CatalogUploadMediaResult.SerializeToString,
       ('proto.PyVcloudProvider', 'CreateCatalog'): CreateCatalogResult.SerializeToString,
       ('proto.PyVcloudProvider', 'DeleteCatalog'): DeleteCatalogResult.SerializeToString,
       ('proto.PyVcloudProvider', 'Login'): LoginResult.SerializeToString,
       ('proto.PyVcloudProvider', 'isPresentCatalog'): IsPresentCatalogResult.SerializeToString,
     }
     method_implementations = {
-      ('proto.PyVcloudProvider', 'CatalogUploadMedia'): face_utilities.unary_unary_inline(servicer.CatalogUploadMedia),
       ('proto.PyVcloudProvider', 'CreateCatalog'): face_utilities.unary_unary_inline(servicer.CreateCatalog),
       ('proto.PyVcloudProvider', 'DeleteCatalog'): face_utilities.unary_unary_inline(servicer.DeleteCatalog),
       ('proto.PyVcloudProvider', 'Login'): face_utilities.unary_unary_inline(servicer.Login),
@@ -659,21 +543,18 @@ try:
     file not marked beta) for all further purposes. This function was
     generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
     request_serializers = {
-      ('proto.PyVcloudProvider', 'CatalogUploadMedia'): CatalogUploadMediaInfo.SerializeToString,
       ('proto.PyVcloudProvider', 'CreateCatalog'): Catalog.SerializeToString,
       ('proto.PyVcloudProvider', 'DeleteCatalog'): Catalog.SerializeToString,
       ('proto.PyVcloudProvider', 'Login'): TenantCredentials.SerializeToString,
       ('proto.PyVcloudProvider', 'isPresentCatalog'): Catalog.SerializeToString,
     }
     response_deserializers = {
-      ('proto.PyVcloudProvider', 'CatalogUploadMedia'): CatalogUploadMediaResult.FromString,
       ('proto.PyVcloudProvider', 'CreateCatalog'): CreateCatalogResult.FromString,
       ('proto.PyVcloudProvider', 'DeleteCatalog'): DeleteCatalogResult.FromString,
       ('proto.PyVcloudProvider', 'Login'): LoginResult.FromString,
       ('proto.PyVcloudProvider', 'isPresentCatalog'): IsPresentCatalogResult.FromString,
     }
     cardinalities = {
-      'CatalogUploadMedia': cardinality.Cardinality.UNARY_UNARY,
       'CreateCatalog': cardinality.Cardinality.UNARY_UNARY,
       'DeleteCatalog': cardinality.Cardinality.UNARY_UNARY,
       'Login': cardinality.Cardinality.UNARY_UNARY,

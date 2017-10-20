@@ -69,7 +69,7 @@ func Provider() terraform.ResourceProvider {
 
 		ResourcesMap: map[string]*schema.Resource{
 
-			"vclouddirector_catalog": resourceCatalog(),
+			"vcloud-director_catalog": resourceCatalog(),
 			//			"vcd_network":         resourceVcdNetwork(),
 			//			"vcd_vapp":            resourceVcdVApp(),
 			//			"vcd_firewall_rules":  resourceVcdFirewallRules(),

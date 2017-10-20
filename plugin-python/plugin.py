@@ -39,6 +39,10 @@ class PyVcloudProviderServicer(pyvcloudprovider_pb2_grpc.PyVcloudProviderService
     def DeleteCatalog(self, request, context):
         return catalog.delete(self.client,request.name)
 
+    def CatalogUploadMedia(self, request, context):
+        return catalog.uploadmedia(self.client,"c3","/home/tiny.ova",item_name="item2")
+#client,"c3","/home/ws2/tiny.ova",item_name="item2"
+
 
 def serve():
     # We need to build a health service to work with go-plugin

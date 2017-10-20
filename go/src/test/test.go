@@ -31,10 +31,11 @@ func main() {
 	// Connect via RPC
 	rpcClient, err := client.Client()
 	if err != nil {
-		fmt.Println("Error:", err.Error())
+		log.Println("Error oc\n\n")
+		fmt.Println("==============\n\n\nError:", err.Error())
 		os.Exit(1)
 	}
-
+	log.Println("call dispense")
 	// Request the plugin
 	raw, err := rpcClient.Dispense("PY_PLUGIN")
 	if err != nil {

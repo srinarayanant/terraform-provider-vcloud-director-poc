@@ -1,6 +1,6 @@
 
 
-provider "vclouddirector" {
+provider "vcloud-director" {
   user                 = "user1"
   password             = "Admin!23"
   org                  = "O1"
@@ -12,7 +12,7 @@ provider "vclouddirector" {
 
 
 
-resource "vclouddirector_catalog" "cata1" {
+resource "vcloud-director_catalog" "cata1" {
         name    = "ct24"
         description = "desc"
         shared  = "true"
@@ -20,7 +20,7 @@ resource "vclouddirector_catalog" "cata1" {
 }
 
 
-resource "vclouddirector_catalog" "cata2" {
+resource "vcloud-director_catalog" "cata2" {
         name    = "ct11"
         description = "desc"
         shared  = "true"
