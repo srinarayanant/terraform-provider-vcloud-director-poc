@@ -88,7 +88,7 @@ func (m *GRPCClient) CatalogUploadMedia(FilePath string) (*proto.CatalogUploadMe
 
 func (m *GRPCServer) CatalogUploadMedia(
 	ctx context.Context,
-	req *proto.Catalog) (*proto.CatalogUploadMediaResult, error) {
+	req *proto.CatalogUploadMediaInfo) (*proto.CatalogUploadMediaResult, error) {
 	v, err := m.Impl.CatalogUploadMedia(ctx, req)
 	return &proto.CatalogUploadMediaResult{Status: v.Status}, err
 
