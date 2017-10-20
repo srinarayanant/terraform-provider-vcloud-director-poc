@@ -76,3 +76,21 @@ func (m *GRPCServer) DeleteCatalog(
 	return &proto.DeleteCatalogResult{Deleted: v.Deleted}, err
 
 }
+
+
+// impl for CatalogUploadMedia
+func (m *GRPCClient) CatalogUploadMedia(FilePath string) (*proto.CatalogUploadMediaResult, error) {
+	result, err := m.client.CatalogUploadMedia(context.Background(), &proto.CatalogUploadMediaInfo{
+		FilePath: FilePath,
+	})
+	return result, err
+}
+
+func (m *GRPCServer) CatalogUploadMedia(
+	ctx context.Context,
+	req *proto.Catalog) (*proto.CatalogUploadMediaResult, error) {
+	v, err := m.Impl.CatalogUploadMedia(ctx, req)
+	return &proto.CatalogUploadMediaResult{Status: v.Status}, err
+
+}
+

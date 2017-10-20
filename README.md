@@ -119,6 +119,7 @@ Any change to the protoc will require a regeneration of the python and go interf
 Thie is achieved by execution the rebuildprotoc script
 
 ```
+[root@worker3 terraform-provider-vcloud-director]# export PATH=$GOPATH/bin:$PATH
 
 [root@worker3 terraform-provider-vcloud-director]# ./rebuildproto.sh 
 rebuild go proto
@@ -295,3 +296,33 @@ This can be built and triggered to run without terraform .
 [root@worker3 test]# go build
 [root@worker3 test]# ./test 
 ```
+
+
+# Adding new method to the protoc definition
+
+
+1 New method added 
+rpc CatalogUploadMedia ( CatalogUploadMediaInfo ) returns ( CatalogUploadMediaResult )  {}
+
+2 ./rebuildprotoc.sh
+
+
+3 Add corresponding implementations 
+
+```
+[root@worker3 src]# ./build.sh 
+# github.com/srinarayanant/terraform-provider-vcloud-director/go/src/vcd/grpc
+github.com/srinarayanant/terraform-provider-vcloud-director/go/src/vcd/grpc/interface.go:53:58: cannot use GRPCServer literal (type *GRPCServer) as type "github.com/srinarayanant/terraform-provider-vcloud-director/go/src/vcd/proto".PyVcloudProviderServer in argument to "github.com/srinarayanant/terraform-provider-vcloud-director/go/src/vcd/proto".RegisterPyVcloudProviderServer:
+  *GRPCServer does not implement "github.com/srinarayanant/terraform-provider-vcloud-director/go/src/vcd/proto".PyVcloudProviderServer (missing CatalogUploadMedia method)
+```
+
+Edit grpc.go
+
+```
+
+
+```
+
+
+
+
