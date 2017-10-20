@@ -104,7 +104,7 @@ protoc
 
 
 
-# Sample make check result
+# Sample make check result from protoc make check
 
 ```
 
