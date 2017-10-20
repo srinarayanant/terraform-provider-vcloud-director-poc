@@ -302,8 +302,10 @@ This can be built and triggered to run without terraform .
 
 
 1 New method added 
-rpc CatalogUploadMedia ( CatalogUploadMediaInfo ) returns ( CatalogUploadMediaResult )  {}
 
+```
+rpc CatalogUploadMedia ( CatalogUploadMediaInfo ) returns ( CatalogUploadMediaResult )  {}
+```
 2 ./rebuildprotoc.sh
 
 
