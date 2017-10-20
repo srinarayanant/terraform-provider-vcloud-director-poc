@@ -24,20 +24,26 @@ The Below Steps are validated on Centos to set up the development environment
 
 # Install python 3.6
 
+```
 wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tgz
 ./configure 
 make
 make install
+```
 
 # Install Dependecies 
+```
  pip3.6 install grpcio
  
  pip3.6 install grpcio-tools
  
  pip3.6 install grpcio_health_checking
+```
+
 
 # Install GO
 
+```
  wget https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gz
 
  export PATH=/opt/go/bin:$PATH
@@ -45,9 +51,10 @@ make install
  export  GOROOT=/opt/go
  
  export GOPATH=/home/~~
+```
 
 # Go Get dependencies
-
+```
  go get github.com/hashicorp/terraform/
  
  go get github.com/golang/protobuf/proto
@@ -55,25 +62,26 @@ make install
  go get github.com/hashicorp/go-plugin
 
  go get google.golang.org/grpc 
-
+```
 
 # Building the Project 
 
-cd terraform-provider-vclouddirector/go/src
+```
+$ cd terraform-provider-vclouddirector/go/src
 
- ./build.sh
+$ ./build.sh
+```
 
+# Steps to install protoc  
 
-#proto install 
+```
+$ wget https://github.com/google/protobuf/releases/download/v3.4.1/protobuf-cpp-3.4.1.tar.gz
 
+$ tar -xvf proto*
 
-wget https://github.com/google/protobuf/releases/download/v3.4.1/protobuf-cpp-3.4.1.tar.gz
+$ cd proto*
 
-tar -xvf proto*
-
-cd proto*
-
-yum install autoconf automake libtool curl make g++ unzip
+$ yum install autoconf automake libtool curl make g++ unzip
 
 $ ./configure
 
@@ -85,16 +93,19 @@ $ make check
 $ make install
 
 $ ldconfig # refresh shared library cache.
-
+```
 
 call protoc   from the terminal to make sure its installed 
->>protoc
+
+```
+protoc
+```
 
 
 
 
+# Sample make check result
 
->>>>>sample make check result
 ```
 
 ============================================================================
