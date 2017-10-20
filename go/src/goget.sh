@@ -1,0 +1,7 @@
+ go get github.com/hashicorp/terraform/
+ 
+ go get github.com/golang/protobuf/proto
+ 
+ go get github.com/hashicorp/go-plugin
+
+ go get google.golang.org/grpc 
