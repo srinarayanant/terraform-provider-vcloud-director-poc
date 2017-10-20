@@ -1,4 +1,4 @@
-# terraform-provider-vclouddirector
+# terraform-provider-vcloud-director
 
 This Project uses the hashicorp go-plugin infrastructure to provide a terraform provider for VMWARE - VCloud Director by interfacing with the python vcd api implementation . This is a a private repo which is part of of a POC evaluating the architecture and fesibility of this approach
 
@@ -62,3 +62,18 @@ make install
 cd terraform-provider-vclouddirector/go/src
 
  ./build.sh
+
+
+#proto install 
+
+
+wget https://github.com/google/protobuf/releases/download/v3.4.1/protobuf-cpp-3.4.1.tar.gz
+tar -xvf proto*
+cd proto*
+
+
+$ ./configure
+$ make
+$ make check
+$ sudo make install
+$ sudo ldconfig # refresh shared library cache.
