@@ -1,11 +1,14 @@
+#!/bin/bash
 echo 'rebuild go proto'
+DIR = 'go/src/github.com/srinarayanant/terraform-provider-vcloud-director/go/src/vcd/proto'
 
+echo $DIR
                                                                                                                                                             
-protoc -I go/src/vcd/proto/  go/src/vcd/proto/pyvcloudprovider.proto --go_out=plugins=grpc:go/src/vcd/proto/
+protoc -I $DIR  $DIR/pyvcloudprovider.proto --go_out=plugins=grpc:$DIR
 
 
 echo 'rebuild python'
 
 
-python -m grpc_tools.protoc -I ./go/src/vcd/proto/ --python_out=./plugin-python/ --grpc_python_out=./plugin-python/ ./go/src/vcd/proto/pyvcloudprovider.proto
+python -m grpc_tools.protoc -I ./$DIR --python_out=./plugin-python/ --grpc_python_out=./plugin-python/ ./$DIR/pyvcloudprovider.proto
 
