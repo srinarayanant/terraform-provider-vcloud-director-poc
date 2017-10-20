@@ -6,7 +6,7 @@ import (
 	"google.golang.org/grpc"
 
 	"github.com/hashicorp/go-plugin"
-	"github.com/srinarayanant/terraform-provider-vclouddirector/go/src/vcd/proto"
+	"github.com/srinarayanant/terraform-provider-vcloud-director/go/src/vcd/proto"
 )
 
 // Handshake is a common handshake that is shared by plugin and host.

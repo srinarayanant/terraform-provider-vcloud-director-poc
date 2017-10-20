@@ -3,7 +3,7 @@ package main
 import (
 	"github.com/hashicorp/terraform/plugin"
 	"github.com/hashicorp/terraform/terraform"
-	"github.com/srinarayanant/terraform-provider-vclouddirector/go/src/vcd/provider"
+	"github.com/srinarayanant/terraform-provider-vcloud-director/go/src/vcd/provider"
 )
 
 func main() {

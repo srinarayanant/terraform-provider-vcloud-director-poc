@@ -5,3 +5,5 @@
  go get github.com/hashicorp/go-plugin
 
  go get google.golang.org/grpc 
+
+ go get github.com/hashicorp/logutils
