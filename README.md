@@ -41,7 +41,7 @@ make install
 ```
 
 
-# Install GO
+# Install GO 
 
 ```
  wget https://storage.googleapis.com/golang/go1.9.linux-amd64.tar.gz
@@ -49,25 +49,32 @@ make install
  export PATH=/opt/go/bin:$PATH
  
  export  GOROOT=/opt/go
- 
- export GOPATH=/home/~~
+ ```
+
+# Set the GO PATH
+
+```
+ export GOPATH=/home/terraform-provider-vcloud-director/go/
+ ```
+
+
+
+# Project Init 
+
+
+	This steps involved getting the go dependencies and installing them
+
+```
+ cd $GOPATH/src/
+
+  ./init.sh
 ```
 
-# Go Get dependencies
-```
- go get github.com/hashicorp/terraform/
- 
- go get github.com/golang/protobuf/proto
- 
- go get github.com/hashicorp/go-plugin
-
- go get google.golang.org/grpc 
-```
 
 # Building the Project 
 
 ```
-$ cd terraform-provider-vclouddirector/go/src
+$ cd terraform-provider-vcloud-director/go/src
 
 $ ./build.sh
 ```
@@ -133,14 +140,14 @@ Set the PY_PLUGIN env variable to point to the pythin plugin call
 
 ```
 [root@worker3 src]# echo $PY_PLUGIN 
-python3 /home/terraform-provider-vclouddirector/plugin-python/plugin.py
+python3 /home/terraform-provider-vcloud-director/plugin-python/plugin.py
 [root@worker3 src]# 
 ```
 
 CD to the go/src directory and execute terraform commands
 
 ```
-[root@worker3 src]# cd /home/terraform-provider-vclouddirector/go/src
+[root@worker3 src]# cd /home/terraform-provider-vcloud-director/go/src
 [root@worker3 src]# terraform init
 
 Initializing provider plugins...
@@ -162,6 +169,8 @@ commands will detect it and remind you to do so if necessary.
 
 Panic resolution
 
+The below error happens if go get is executed and the offending package is not removed , taken care of in   /go/src/init.sh
+
 ```
 [root@worker3 src]# terraform plan
 Error asking for user input: 1 error(s) occurred:
@@ -170,7 +179,12 @@ Error asking for user input: 1 error(s) occurred:
 panic: http: multiple registrations for /debug/requests
 ```
 
+Remove the offending library
+
+```
  rm -rf $GOPATH/src/github.com/hashicorp/terraform/vendor/golang.org/x/net/trace
+```
+
 
 ```
 [root@worker3 src]# terraform plan
@@ -241,9 +255,9 @@ This can be built and triggered to run without terraform .
 
 ```
 [root@worker3 test]# echo $GOPATH 
-/home/terraform-provider-vclouddirector/go/
+/home/terraform-provider-vcloud-director/go/
 [root@worker3 test]# pwd
-/home/terraform-provider-vclouddirector/go/src/test
+/home/terraform-provider-vcloud-director/go/src/test
 [root@worker3 test]# go build
 [root@worker3 test]# ./test 
 ```
