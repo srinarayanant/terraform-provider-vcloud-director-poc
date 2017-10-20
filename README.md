@@ -68,12 +68,18 @@ cd terraform-provider-vclouddirector/go/src
 
 
 wget https://github.com/google/protobuf/releases/download/v3.4.1/protobuf-cpp-3.4.1.tar.gz
+
 tar -xvf proto*
+
 cd proto*
 
 
 $ ./configure
+
 $ make
+
 $ make check
+
 $ sudo make install
+
 $ sudo ldconfig # refresh shared library cache.
