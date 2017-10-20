@@ -27,7 +27,7 @@ func main() {
 			plugin.ProtocolNetRPC, plugin.ProtocolGRPC},
 	})
 	defer client.Kill()
-
+	log.Println(" ok starting to client ")
 	// Connect via RPC
 	rpcClient, err := client.Client()
 	if err != nil {
