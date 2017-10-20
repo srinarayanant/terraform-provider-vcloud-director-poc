@@ -73,6 +73,7 @@ tar -xvf proto*
 
 cd proto*
 
+yum install autoconf automake libtool curl make g++ unzip
 
 $ ./configure
 
@@ -80,6 +81,29 @@ $ make
 
 $ make check
 
-$ sudo make install
 
-$ sudo ldconfig # refresh shared library cache.
+$ make install
+
+$ ldconfig # refresh shared library cache.
+
+
+call protoc   from the terminal to make sure its installed 
+>>protoc
+
+
+
+
+
+>>>>>sample make check result
+
+============================================================================
+Testsuite summary for Protocol Buffers 3.4.1
+============================================================================
+# TOTAL: 7
+# PASS:  7
+# SKIP:  0
+# XFAIL: 0
+# FAIL:  0
+# XPASS: 0
+# ERROR: 0
+============================================================================
