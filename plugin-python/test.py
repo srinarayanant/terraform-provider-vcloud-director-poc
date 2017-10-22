@@ -25,8 +25,9 @@ def vcdlogin(  host, user, password, org):
 		#res=catalog.create(client,"c3","c2UPD")
 
 		#logging.info(" is create ===== \n \n "+ str(res.created)+ "\n \n ")
-
-        catalog.upload_media(client,"c3","/home/ws2/tiny.ova",item_name="item2")
+        logging.info("\n\n=====callling upload ova===\n")
+        catalog.upload_media(client,"c3","/home/iso/vcains13.ova",item_name="vc installer 1.3")
+        logging.info("\n\n=====upload done ===\n ")
 		#logging.info(" Delete  ===== \n \n "+ str(catalog.delete(client,"c3").deleted)+ "\n \n ")
 		#logging.info(" Delete  ===== \n \n "+ str(catalog.delete(client,"c4").deleted)+ "\n \n ")
 
