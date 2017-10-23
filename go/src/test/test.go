@@ -11,6 +11,7 @@ import (
 
 	"github.com/hashicorp/go-plugin"
 	"runtime/debug"
+	"github.com/srinarayanant/terraform-provider-vcloud-director/go/src/vcd/proto"
 )
 
 func main() {
@@ -67,6 +68,6 @@ func main() {
 
 	//kv.CreateCatalog("c5", "de", false)
 	//kv.DeleteCatalog("c5")
-	kv.CatalogUploadMedia("c3","/home/iso/vcains13.ova","ova");
+	kv.CatalogUploadMedia(proto.CatalogUploadMediaInfo{CatalogName:"c3",FilePath:"/home/iso/vcains13.ova",ItemName:"ova",});
 
 }
