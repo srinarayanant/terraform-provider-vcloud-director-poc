@@ -34,6 +34,11 @@ class PyVcloudProviderStub(object):
         request_serializer=pyvcloudprovider__pb2.Catalog.SerializeToString,
         response_deserializer=pyvcloudprovider__pb2.DeleteCatalogResult.FromString,
         )
+    self.CatalogUploadMedia = channel.unary_unary(
+        '/proto.PyVcloudProvider/CatalogUploadMedia',
+        request_serializer=pyvcloudprovider__pb2.CatalogUploadMediaInfo.SerializeToString,
+        response_deserializer=pyvcloudprovider__pb2.CatalogUploadMediaResult.FromString,
+        )
 
 
 class PyVcloudProviderServicer(object):
@@ -68,6 +73,13 @@ class PyVcloudProviderServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def CatalogUploadMedia(self, request, context):
+    """catalog upload
+    """
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
 
 def add_PyVcloudProviderServicer_to_server(servicer, server):
   rpc_method_handlers = {
@@ -90,6 +102,11 @@ def add_PyVcloudProviderServicer_to_server(servicer, server):
           servicer.DeleteCatalog,
           request_deserializer=pyvcloudprovider__pb2.Catalog.FromString,
           response_serializer=pyvcloudprovider__pb2.DeleteCatalogResult.SerializeToString,
+      ),
+      'CatalogUploadMedia': grpc.unary_unary_rpc_method_handler(
+          servicer.CatalogUploadMedia,
+          request_deserializer=pyvcloudprovider__pb2.CatalogUploadMediaInfo.FromString,
+          response_serializer=pyvcloudprovider__pb2.CatalogUploadMediaResult.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

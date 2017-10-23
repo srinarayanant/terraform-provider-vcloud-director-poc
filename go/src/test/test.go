@@ -47,7 +47,7 @@ func main() {
 	// implementation but is in fact over an RPC connection.
 	kv := raw.(grpc.PyVcloudProvider)
 
-	lresult, err := kv.Login("user1", "Admin!23", "O1", "10.112.83.27")
+	_, err = kv.Login("user1", "Admin!23", "O1", "10.112.83.27")
 	if err != nil {
 		debug.PrintStack()
 		log.Fatal("err =======       ", err)
@@ -65,13 +65,8 @@ func main() {
 		fmt.Println("=======================  ppp resent ")
 	}
 
-	kv.CreateCatalog("c5", "de", false)
-	kv.DeleteCatalog("c5")
-	if err != nil {
-		fmt.Println("Error:", err.Error())
-		os.Exit(1)
-	}
-	fmt.Println((cresult.Present))
-	fmt.Println((lresult))
+	//kv.CreateCatalog("c5", "de", false)
+	//kv.DeleteCatalog("c5")
+	kv.CatalogUploadMedia("c3","/home/iso/*.ova","ova");
 
 }
