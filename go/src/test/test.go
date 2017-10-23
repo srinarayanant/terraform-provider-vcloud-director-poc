@@ -67,6 +67,6 @@ func main() {
 
 	//kv.CreateCatalog("c5", "de", false)
 	//kv.DeleteCatalog("c5")
-	kv.CatalogUploadMedia("c3","/home/iso/*.ova","ova");
+	kv.CatalogUploadMedia("c3","/home/iso/vcains13.ova","ova");
 
 }

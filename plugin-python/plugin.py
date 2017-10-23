@@ -40,8 +40,8 @@ class PyVcloudProviderServicer(pyvcloudprovider_pb2_grpc.PyVcloudProviderService
         return catalog.delete(self.client,request.name)
 
     def CatalogUploadMedia(self, request, context):
-	#here the request object is CatalogUploadMediaInfo of the protoc / go definition
-        return catalog.upload_media(self.client,request.CatalogName,request.FilePath,item_name=request.ItemName)
+	#here the request object is CatalogUploadMediaInfo of the protoc / python definition
+        return catalog.upload_media(self.client,request.catalog_name,request.file_path,item_name=request.item_name)
 
 #client,"c3","/home/ws2/tiny.ova",item_name="item2"
 
