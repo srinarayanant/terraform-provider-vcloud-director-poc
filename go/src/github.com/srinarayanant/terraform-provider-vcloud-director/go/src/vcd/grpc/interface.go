@@ -30,6 +30,8 @@ type PyVcloudProvider interface {
 	CreateCatalog(name string, description string, shared bool) (*proto.CreateCatalogResult, error)
 
 	DeleteCatalog(name string) (*proto.DeleteCatalogResult, error)
+
+	CatalogUploadMedia(catalogName string , filePath string ,itemName string) (*proto.CatalogUploadMediaResult, error)
 }
 
 // This is the implementation of plugin.Plugin so we can serve/consume this.
