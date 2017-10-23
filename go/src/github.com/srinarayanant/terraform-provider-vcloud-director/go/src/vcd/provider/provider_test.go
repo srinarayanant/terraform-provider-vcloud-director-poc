@@ -1,64 +1,29 @@
 package provider
-
 import (
-	"fmt"
-	//	"io/ioutil"
-	"log"
-	"os"
-	"os/exec"
+  
+  "testing"
 
-	
-	"github.com/srinarayanant/terraform-provider-vcloud-director/go/src/vcd/grpc"
-	"github.com/hashicorp/go-plugin"
-	"runtime/debug"
-	"testing"
+  "github.com/hashicorp/terraform/helper/schema"
+  "github.com/hashicorp/terraform/terraform"
 )
 
+var testProvider *schema.Provider
+
+func init() {
+  testProvider = Provider().(*schema.Provider)
+}
+
 func TestProvider(t *testing.T) {
-	// We don't want to see the plugin logs.
-	//log.SetOutput(ioutil.Discard)
-	log.SetOutput(os.Stdout)
+  if err := Provider().(*schema.Provider).InternalValidate(); err != nil {
+    t.Fatalf("err: %s", err)
+  }
+}
 
-	// We're a host. Start by launching the plugin process.
-	client := plugin.NewClient(&plugin.ClientConfig{
-		HandshakeConfig: grpc.Handshake,
-		Plugins:         grpc.PluginMap,
-		Cmd:             exec.Command("sh", "-c", os.Getenv("PY_PLUGIN")),
-		AllowedProtocols: []plugin.Protocol{
-			plugin.ProtocolNetRPC, plugin.ProtocolGRPC},
-	})
-	defer client.Kill()
+func TestProvider_impl(t *testing.T) {
+  var _ terraform.ResourceProvider = Provider()
+}
 
-	// Connect via RPC
-	rpcClient, err := client.Client()
-	if err != nil {
-		fmt.Println("Error:", err.Error())
-		os.Exit(1)
-	}
-
-	// Request the plugin
-	raw, err := rpcClient.Dispense("PY_PLUGIN")
-	if err != nil {
-		fmt.Println("Error:", err.Error())
-		os.Exit(1)
-	}
-
-	// We should have a KV store now! This feels like a normal interface
-	// implementation but is in fact over an RPC connection.
-	kv := raw.(grpc.PyVcloudProvider)
-
-	lresult, err := kv.Login("user1", "Admin!23", "O1", "10.112.83.27")
-	if err != nil {
-		debug.PrintStack()
-		log.Fatal("err =======       ", err)
-
-		fmt.Errorf("error in login %s", err)
-	}
-	if err != nil {
-		fmt.Println("Error:", err.Error())
-		os.Exit(1)
-	}
-	
-	fmt.Println((lresult))
-
+func testPreCheck(t *testing.T) {
+  // We will use this function later on to make sure our test environment is valid.
+  // For example, you can make sure here that some environment variables are set.
 }
