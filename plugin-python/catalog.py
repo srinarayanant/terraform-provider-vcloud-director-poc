@@ -75,11 +75,17 @@ def delete(client, name):
 
 
 def upload_media(client, catalog_name, file_name, item_name):
-        logging.debug("===== upload_media to  catalog called === \n")
+        logging.debug("===== upload_media to ++catalog called === \n")
+        result=pyvcloudprovider_pb2.CatalogUploadMediaResult()
+        result.created=False
+
         try:
                 logged_in_org = client.get_org()
                 org = Org(client, resource=logged_in_org)
                 org.upload_media(catalog_name=catalog_name,
                                  file_name=file_name, item_name=item_name)
+                result.created=True
+                return result;
         except Exception as e:
                 logging.warn("error occured", e)
+                return result;

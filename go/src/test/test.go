@@ -41,7 +41,7 @@ func main() {
 	raw, err := rpcClient.Dispense("PY_PLUGIN")
 	if err != nil {
 		fmt.Println("Error:", err.Error())
-		os.Exit(1)
+	
 	}
 
 	// We should have a KV store now! This feels like a normal interface
@@ -55,19 +55,30 @@ func main() {
 
 		fmt.Errorf("error in login %s", err)
 	}
+	/*
 	cresult, err := kv.IsPresentCatalog("c1")
 	log.Printf("[INFO] ======================== resource======= \n\n\n\n\n\n")
 	if err != nil {
 		log.Fatal("err =======       ", err)
 
 		fmt.Errorf("error in login %s", err)
+
+		os.Exit(1)
 	}
 	if cresult.Present {
 		fmt.Println("=======================  ppp resent ")
 	}
+	*/
 
 	//kv.CreateCatalog("c5", "de", false)
 	//kv.DeleteCatalog("c5")
-	kv.CatalogUploadMedia(proto.CatalogUploadMediaInfo{CatalogName:"c3",FilePath:"/home/iso/vcains13.ova",ItemName:"ova",});
+	cres,cerr := kv.CatalogUploadMedia(proto.CatalogUploadMediaInfo{CatalogName:"c3",FilePath:"/home/iso/vcains13.ova",ItemName:"ova",});
+	if cerr != nil {
+		log.Fatal("cerr =======       ", cerr)
 
+		fmt.Errorf("error in login %s", cerr)
+
+		os.Exit(1)
+	}
+	fmt.Println(cres.Created)
 }
