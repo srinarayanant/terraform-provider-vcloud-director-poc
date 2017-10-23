@@ -91,7 +91,7 @@ func (m *GRPCServer) CatalogUploadMedia(
 	ctx context.Context,
 	req *proto.CatalogUploadMediaInfo) (*proto.CatalogUploadMediaResult, error) {
 	v, err := m.Impl.CatalogUploadMedia(ctx, req)
-	return &proto.CatalogUploadMediaResult{Status: v.Status}, err
+	return &proto.CatalogUploadMediaResult{Created: v.Created}, err
 
 }
 
