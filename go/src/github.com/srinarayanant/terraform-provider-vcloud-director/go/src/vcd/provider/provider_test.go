@@ -7,7 +7,8 @@ import (
 	"os"
 	"os/exec"
 
-	"../grpc"
+	
+	"github.com/srinarayanant/terraform-provider-vcloud-director/go/src/vcd/grpc"
 	"github.com/hashicorp/go-plugin"
 	"runtime/debug"
 	"testing"
@@ -53,19 +54,11 @@ func TestProvider(t *testing.T) {
 
 		fmt.Errorf("error in login %s", err)
 	}
-	cresult, err := kv.IsPresentCatalog("c1")
-	log.Printf("[INFO] ======================== resource======= \n\n\n\n\n\n")
-
-	if cresult.Present {
-		fmt.Println("=======================  ppp resent ")
-	}
-	kv.CreateCatalog("c5", "de", false)
-	kv.DeleteCatalog("c5")
 	if err != nil {
 		fmt.Println("Error:", err.Error())
 		os.Exit(1)
 	}
-	fmt.Println((cresult.Present))
+	
 	fmt.Println((lresult))
 
 }
